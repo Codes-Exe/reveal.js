@@ -19,10 +19,15 @@
 		<div class="reveal">
 			<!-- Any section element inside of this container is displayed as a slide -->
 			<div class="slides">
-					<img class="r-frame" style="background: rgba(255,255,255,0.1);" width="178" height="238" data-src="" alt=""><img src="https://github.com/user-attachments/assets/e9fc3067-1812-4124-9d93-461319ae962e">
+					<img class="r-frame" style="background: rgba(255,255,255,0.1);" width="178" height="238" data-src="" alt=""><img src="https://github.com/user-attachments/assets/679b0449-608b-42be-a595-6375fff09716">
                                      	<section>							
-					<img class="r-frame" style="background: rgba(255,255,255,0.1);" width="178" height="238" data-src="https://github.com/user-attachments/assets/dd878ebb-f2bd-459a-8372-874c9adb34d2" alt="">
+					<img class="r-frame" style="background: rgba(255,255,255,0.1);" width="400" height="238" data-src="https://github.com/user-attachments/assets/dd878ebb-f2bd-459a-8372-874c9adb34d2" alt="">
 					<h3>StarComputer</h3>
+						<p>
+						reveal.js is an open source HTML presentation framework. It's a tool that enables anyone with a web browser to create fully-featured and beautiful presentations for free.
+                                                Presentations made with reveal.js are built on open web technologies. That means anything you can do on the web, you can do in your presentation. Change styles with CSS, include an external web page using an <iframe> or add your own custom behavior using our JavaScript API.
+                                                The framework comes with a broad range of features including nested slides, Markdown support, Auto-Animate, PDF export, speaker notes, LaTeX support and syntax highlighted code.
+						</p>
 					</section>
 				<section>
 					<a href="https://revealjs.com">
@@ -438,142 +443,6 @@ Reveal.on( 'customevent', function() {
 	</script>
 	</body>
 </html>
-
-        // Push each slide change to the browser history
-        history: false,
-
-        // Enable keyboard shortcuts for navigation
-        keyboard: true,
-
-        // Enable the slide overview mode
-        overview: true,
-
-        // Disables the default reveal.js slide layout (scaling and centering)
-        // so that you can use custom CSS layout
-        disableLayout: false,
-
-        // Vertical centering of slides
-        center: true,
-
-        // Enables touch navigation on devices with touch input
-        touch: true,
-
-        // Loop the presentation
-        loop: false,
-
-        // Change the presentation direction to be RTL
-        rtl: false,
-
-        // see https://revealjs.com/vertical-slides/#navigation-mode
-        navigationMode: 'default',
-
-        // Randomizes the order of slides each time the presentation loads
-        shuffle: false,
-
-        // Turns fragments on and off globally
-        fragments: true,
-
-        // Flags whether to include the current fragment in the URL,
-        // so that reloading brings you to the same fragment position
-        fragmentInURL: true,
-
-        // Flags if the presentation is running in an embedded mode,
-        // i.e. contained within a limited portion of the screen
-        embedded: false,
-
-        // Flags if we should show a help overlay when the questionmark
-        // key is pressed
-        help: true,
-
-        // Flags if it should be possible to pause the presentation (blackout)
-        pause: true,
-
-        // Flags if speaker notes should be visible to all viewers
-        showNotes: false,
-
-        // Global override for autoplaying embedded media (null/true/false)
-        autoPlayMedia: null,
-
-        // Global override for preloading lazy-loaded iframes (null/true/false)
-        preloadIframes: null,
-
-        // Number of milliseconds between automatically proceeding to the
-        // next slide, disabled when set to 0, this value can be overwritten
-        // by using a data-autoslide attribute on your slides
-        autoSlide: 0,
-
-        // Stop auto-sliding after user input
-        autoSlideStoppable: true,
-
-        // Use this method for navigation when auto-sliding
-        autoSlideMethod: null,
-
-        // Specify the average time in seconds that you think you will spend
-        // presenting each slide. This is used to show a pacing timer in the
-        // speaker view
-        defaultTiming: null,
-
-        // Enable slide navigation via mouse wheel
-        mouseWheel: false,
-
-        // The display mode that will be used to show slides
-        display: 'block',
-
-        // Hide cursor if inactive
-        hideInactiveCursor: true,
-
-        // Time before the cursor is hidden (in ms)
-        hideCursorTime: 5000,
-
-        // Opens links in an iframe preview overlay
-        previewLinks: false,
-
-        // Transition style (none/fade/slide/convex/concave/zoom)
-        transition: 'slide',
-
-        // Transition speed (default/fast/slow)
-        transitionSpeed: 'default',
-
-        // Transition style for full page slide backgrounds
-        // (none/fade/slide/convex/concave/zoom)
-        backgroundTransition: 'fade',
-
-        // Number of slides away from the current that are visible
-        viewDistance: 3,
-
-        // Number of slides away from the current that are visible on mobile
-        // devices. It is advisable to set this to a lower number than
-        // viewDistance in order to save resources.
-        mobileViewDistance: 2,
-
-        math: {
-          mathjax: 'https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js',
-          config: 'TeX-AMS_HTML-full',
-          tex2jax: {
-            inlineMath: [['\\(','\\)']],
-            displayMath: [['\\[','\\]']],
-            balanceBraces: true,
-            processEscapes: false,
-            processRefs: true,
-            processEnvironments: true,
-            preview: 'TeX',
-            skipTags: ['script','noscript','style','textarea','pre','code'],
-            ignoreClass: 'tex2jax_ignore',
-            processClass: 'tex2jax_process'
-          },
-        },
-
-        // reveal.js plugins
-        plugins: [
-          RevealMath,
-          RevealNotes,
-          RevealSearch,
-          RevealZoom
-        ]
-      });
-    </script>
-    </body>
-</html>
 <!DOCTYPE html>
 <html>
 <head>
@@ -685,17 +554,14 @@ Reveal.on( 'customevent', function() {
 <body>
   <div class="reveal">
     <div class="slides">
-
 <section id="title-slide">
   <h1 class="title">Pandoc for TeXnicians</h1>
   <p class="author">John MacFarlane</p>
   <p class="date">TUG 2020, 2020-07-26</p>
 </section>
-
 <section>
 <section id="overview" class="title-slide slide level1">
 <h1>Overview</h1>
-
 </section>
 <section id="section" class="slide level2">
 <h2></h2>
@@ -1182,15 +1048,12 @@ use new contributors!</li>
 </section></section>
     </div>
   </div>
-
   <script src="https://unpkg.com/reveal.js@^4//dist/reveal.js"></script>
-
   <!-- reveal.js plugins -->
   <script src="https://unpkg.com/reveal.js@^4//plugin/notes/notes.js"></script>
   <script src="https://unpkg.com/reveal.js@^4//plugin/search/search.js"></script>
   <script src="https://unpkg.com/reveal.js@^4//plugin/zoom/zoom.js"></script>
   <script src="https://unpkg.com/reveal.js@^4//plugin/math/math.js"></script>
-
   <script>
 
       // Full list of configuration options available at:
@@ -1335,7 +1198,6 @@ use new contributors!</li>
         // devices. It is advisable to set this to a lower number than
         // viewDistance in order to save resources.
         mobileViewDistance: 2,
-
         math: {
           mathjax: 'https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js',
           config: 'TeX-AMS_HTML-full',
@@ -1352,7 +1214,6 @@ use new contributors!</li>
             processClass: 'tex2jax_process'
           },
         },
-
         // reveal.js plugins
         plugins: [
           RevealMath,
