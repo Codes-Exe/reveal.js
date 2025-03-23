@@ -1,43 +1,35 @@
 <!doctype html>
-<html lang="en">
-
+<html>
 	<head>
 		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
 		<title>StarComputer reveal.js</title>
-		<meta name="description" content="A framework for easily creating beautiful presentations using HTML">
-		<meta name="author" content="Hakim El Hattab">
-		<meta name="apple-mobile-web-app-capable" content="yes">
-		<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-		<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<link rel="stylesheet" href="dist/reset.css">
+
+		<link rel="stylesheet" href="dist/reset.css">
 		<link rel="stylesheet" href="dist/reveal.css">
-		<link rel="stylesheet" href="dist/theme/black.css" id="theme">
-	<!-- Theme used for syntax highlighting of code -->
+		<link rel="stylesheet" href="dist/theme/black.css">
+
+		<!-- Theme used for syntax highlighted code -->
 		<link rel="stylesheet" href="plugin/highlight/monokai.css">
 	</head>
 	<body>
 		<div class="reveal">
-			<!-- Any section element inside of this container is displayed as a slide -->
 			<div class="slides">
-					<img class="r-frame" style="background: rgba(255,255,255,0.1);" width="30" height="60" data-src="" alt="Next"><img src="https://github.com/user-attachments/assets/679b0449-608b-42be-a595-6375fff09716">
-                                     	<section>							
-					<img class="r-frame" style="background: rgba(255,255,255,0.1);" width="400" height="238" data-src="https://github.com/user-attachments/assets/dd878ebb-f2bd-459a-8372-874c9adb34d2" alt="">
-					<h3>Star Computer</h3>
-						<p>
-                                                The framework comes with a broad range of features including nested slides, Markdown support, Auto-Animate, PDF export, speaker notes, LaTeX support and syntax highlighted code.
-						Write to us to have a presentation prepared. You can display your ready presentation from anywhere you want on the special web address we will give you.
-						</p>
-					</section>
-				<section>
-					<a href="https://revealjs.com">
-						<img src="https://static.slid.es/reveal/logo-v1/reveal-white-text.svg" alt="reveal.js logo" style="height: 180px; margin: 0 auto 4rem auto; background: transparent;" class="demo-logo">
+				<a href="#/3/2" class="navigate-down">
+							<img class="l-frame" style="background: rgba(255,255,255,0.1);" width="10" height="30">
+                                                        <img src="https://github.com/user-attachments/assets/58dfcf4c-f15a-4e21-a293-ad089f5eb767" alt="187872518-57fd90bd-6821-4e59-8dcb-6f2ecebcb906">						</a>
+				<section>Çerçeve, iç içe geçmiş slaytlar, Markdown desteği, Otomatik Animasyon, PDF dışa aktarma, konuşmacı notları, LaTeX dizgi, sözdizimi vurgulanmış kod ve kapsamlı bir API içeren güçlü bir özellik seti ile birlikte gelir. </section>
+			        <section>
+				</a>
+                                     <a href="https://revealjs.com">
+					<img src="https://static.slid.es/reveal/logo-v1/reveal-white-text.svg" alt="StarComputer" style="height: 180px; margin: 0 auto 4rem auto; background: transparent;" class="demo-logo"><img src="https://github.com/user-attachments/assets/16f97f04-9a5c-4891-81c2-4265fe0a2449" alt="1738339969360">
 					</a>
 					<h3>The HTML Presentation Framework</h3>
 					<p>
 						<small>Created by <a href="http://hakim.se">Hakim El Hattab</a> and <a href="https://github.com/hakimel/reveal.js/graphs/contributors">contributors</a></small>
 					</p>
 				</section>
-
 				<section>
 					<h2>Hello There</h2>
 					<p>
@@ -87,6 +79,7 @@
 
 						function Example() {
 						  const [count, setCount] = useState(0);
+
 						  return (
 						    ...
 						  );
@@ -98,8 +91,10 @@
 					<h2 data-id="code-title">With animations</h2>
 					<pre data-id="code-animation"><code class="hljs" data-trim data-line-numbers="|4,8-11|17|22-24"><script type="text/template">
 						import React, { useState } from 'react';
+
 						function Example() {
 						  const [count, setCount] = useState(0);
+
 						  return (
 						    <div>
 						      <p>You clicked {count} times</p>
@@ -109,8 +104,10 @@
 						    </div>
 						  );
 						}
+
 						function SecondExample() {
 						  const [count, setCount] = useState(0);
+
 						  return (
 						    <div>
 						      <p>You clicked {count} times</p>
@@ -168,11 +165,14 @@
 				<section data-markdown>
 					<script type="text/template">
 						## Markdown support
+
 						Write content using inline or external Markdown.
 						Instructions and more info available in the [docs](https://revealjs.com/markdown/).
+
 						```html []
 						<section data-markdown>
 						  ## Markdown support
+
 						  Write content using inline or external Markdown.
 						  Instructions and more info available in the [docs](https://revealjs.com/markdown/).
 						</section>
@@ -189,6 +189,7 @@
 						<p>Hit the next arrow...</p>
 						<p class="fragment">... to step through ...</p>
 						<p><span class="fragment">... a</span> <span class="fragment">fragmented</span> <span class="fragment">slide.</span></p>
+
 						<aside class="notes">
 							This slide has fragments which are also stepped through in the notes window.
 						</aside>
@@ -302,6 +303,7 @@
 						<li>Or here</li>
 					</ul>
 				</section>
+
 				<section>
 					<h2>Fantastic Ordered List</h2>
 					<ol>
@@ -389,20 +391,13 @@ Reveal.on( 'customevent', function() {
 } );
 					</code></pre>
 				</section>
-
 				<section>
 					<h2>Take a Moment</h2>
 					<p>
 						Press B or . on your keyboard to pause the presentation. This is helpful when you're on stage and want to take distracting slides off the screen.
 					</p>
 				</section>
-                        				<section class="slide level6" style="text-align: left;">
-					<h1>PANDOC</h1>
-					<img src="https://pandoc.org/try/"  style="height: 180px; margin: 0 auto 4rem auto; background: transparent;" class="pandoclogo"><img src="https://github.com/user-attachments/assets/d4898983-3441-43a5-82c6-662ae479146f">
-					<p>pandoc -s --mathjax -i -t revealjs SLIDES -o example16d.html</p>
-					- <a href="https://pandoc.org/try/">Pandoc Demo Sites</a> <br>
-                                </section>
-							<section>
+				<section>
 					<h2>Much more</h2>
 					<ul>
 						<li>Right-to-left support</li>
@@ -412,38 +407,41 @@ Reveal.on( 'customevent', function() {
 						<li><a href="https://revealjs.com/keyboard/">Custom keyboard bindings</a></li>
 					</ul>
 				</section>
+				<section class="slide level6" style="text-align: left;">
+					<h1>PANDOC</h1>
+					<img src="https://pandoc.org/try/"  style="height: 180px; margin: 0 auto 4rem auto; background: transparent;" class="pandoclogo"><img src="https://github.com/user-attachments/assets/d4898983-3441-43a5-82c6-662ae479146f">
+					<p>pandoc -s --mathjax -i -t revealjs SLIDES -o example16d.html</p>
+					- <a href="https://pandoc.org/try/">Pandoc Demo Sites</a> <br>
+                                </section>
 				<section style="text-align: left;">
 					<h1>THE END</h1>
 					<p>
 						- <a href="https://slides.com">Try the online editor</a> <br>
-						- <a href="https://github.com/hakimel/reveal.js">Source code &amp; documentation</a>
+						- <a href="https://github.com/hakimel/reveal.js">Source code &amp; documentation</a> <br>
 					</p>
 					<p>
-						- <a href="https://outlook.office.com/mail/">Support: starcomputer@outlook.com.tr</a> <br>
-						- <a href="https://mycomputer.digital">Blog sayfanız burada hazırlanır</a>
+						- <a href="https://mycomputer.digital">MyComputer Blog FastPages</a>  <br>
+						- <a href="https://login.live.com">Support: ercetinguler@hotmail.com</a>  <br>
 					</p>
 				</section>
 			</div>
 		</div>
+
 		<script src="dist/reveal.js"></script>
-		<script src="plugin/zoom/zoom.js"></script>
 		<script src="plugin/notes/notes.js"></script>
-		<script src="plugin/search/search.js"></script>
 		<script src="plugin/markdown/markdown.js"></script>
 		<script src="plugin/highlight/highlight.js"></script>
 		<script>
-			// Also available as an ES module, see:
-			// https://revealjs.com/initialization/
+			// More info about initialization & config:
+			// - https://revealjs.com/initialization/
+			// - https://revealjs.com/config/
 			Reveal.initialize({
-				controls: true,
-				progress: true,
-				center: true,
 				hash: true,
 
 				// Learn about plugins: https://revealjs.com/plugins/
-				plugins: [ RevealZoom, RevealNotes, RevealSearch, RevealMarkdown, RevealHighlight ]
+				plugins: [ RevealMarkdown, RevealHighlight, RevealNotes ]
 			});
-	</script>
+		</script>
 	</body>
 </html>
 <!DOCTYPE html>
@@ -451,7 +449,8 @@ Reveal.on( 'customevent', function() {
 <head>
   <meta charset="utf-8">
   <meta name="generator" content="pandoc">
-  <title>Untitled</title>
+  <meta name="author" content="John MacFarlane">
+  <title>Pandoc for TeXnicians</title>
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
@@ -541,20 +540,28 @@ Reveal.on( 'customevent', function() {
     code span.vs { color: #4070a0; } /* VerbatimString */
     code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
   </style>
-  <link rel="stylesheet" href="https://unpkg.com/reveal.js@^4//dist/theme/black.css" id="theme">
+  <link rel="stylesheet" href="https://unpkg.com/reveal.js@^4//dist/theme/solarized.css" id="theme">
+  <style>
+    .reveal {
+    font-size: 20pt;
+    line-height: 1.2em;
+  }
+   .reveal pre code {
+    font-size: 16pt;
+    line-height: 1.2em;
+  }
+  </style>
 </head>
 <body>
   <div class="reveal">
     <div class="slides">
 
-
-<section class="slide level2">
-
-<p>title: Pandoc for TeXnicians author: John MacFarlane date: TUG 2020,
-2020-07-26 theme: solarized header-includes: | <style> .reveal {
-font-size: 20pt; line-height: 1.2em; } .reveal pre code { font-size:
-16pt; line-height: 1.2em; } </style> ...</p>
+<section id="title-slide">
+  <h1 class="title">Pandoc for TeXnicians</h1>
+  <p class="author">John MacFarlane</p>
+  <p class="date">TUG 2020, 2020-07-26</p>
 </section>
+
 <section>
 <section id="overview" class="title-slide slide level1">
 <h1>Overview</h1>
@@ -566,7 +573,7 @@ font-size: 20pt; line-height: 1.2em; } .reveal pre code { font-size:
 <li>What is pandoc?</li>
 <li>Using pandoc to convert to and from LaTeX</li>
 <li>Why write in Markdown?</li>
-<li>Overcoming Markdown's limitations</li>
+<li>Overcoming Markdown’s limitations</li>
 </ul>
 </section></section>
 <section>
@@ -579,7 +586,7 @@ font-size: 20pt; line-height: 1.2em; } .reveal pre code { font-size:
 <p><a href="https://pandoc.org" class="uri">https://pandoc.org</a></p>
 </section>
 <section id="lets-take-it-for-a-spin" class="slide level2">
-<h2>Let's take it for a spin</h2>
+<h2>Let’s take it for a spin</h2>
 <pre><code>% cat simple.tex
 \section{On $e=mc^2$}\label{einstein}</code></pre>
 <pre><code>% pandoc -f latex -t native simple.tex
@@ -594,7 +601,7 @@ font-size: 20pt; line-height: 1.2em; } .reveal pre code { font-size:
 </section>
 <section id="some-math" class="slide level2">
 <h2>Some math</h2>
-<p>Let's try with a sample TeX document by Professor A.J. Roberts at the
+<p>Let’s try with a sample TeX document by Professor A.J. Roberts at the
 University of Adelaide (CC licensed).</p>
 <p><a
 href="http://www.maths.adelaide.edu.au/anthony.roberts/LaTeX/Src/maths.tex"
@@ -671,7 +678,7 @@ fonts.</li>
 <li>Section 2, accents messed up.</li>
 <li>Some formulas are rendered with images, others with regular
 characters, in non-matching font.</li>
-<li>The 'where' in Section 6 is badly mispleacd.</li>
+<li>The ‘where’ in Section 6 is badly mispleacd.</li>
 <li>The integral is missing in Section 7</li>
 <li>The diagonal ellipses are missing in the arrays</li>
 </ul>
@@ -702,7 +709,7 @@ the released binaries).</p>
 <h2>Limitations</h2>
 <p>Pandoc is far from being able to convert arbitrary tex files with
 high accuracy.</p>
-<p>Let's try with a real-world example I got at random from arxiv.</p>
+<p>Let’s try with a real-world example I got at random from arxiv.</p>
 <pre><code>% cd arxiv.2007.07694v1
 % pandoc arxiv.tex -o arxiv.docx</code></pre>
 </section></section>
@@ -713,10 +720,10 @@ high accuracy.</p>
 </section>
 <section id="an-alternative-1" class="slide level2">
 <h2>An alternative</h2>
-<p>So you can't just write in LaTeX and expect to convert at the last
+<p>So you can’t just write in LaTeX and expect to convert at the last
 minute to docx (for a publisher) or epub (for your students) or HTML
 (for your website).</p>
-<p>An alternative: write your document in pandoc's extended version of
+<p>An alternative: write your document in pandoc’s extended version of
 Markdown, which pandoc can convert with complete accuracy to any of its
 output formats.</p>
 </section>
@@ -735,21 +742,20 @@ class="uri">https://daringfireball.net/projects/markdown/</a></p>
 <section id="appealing-things-about-markdown" class="slide level2">
 <h2>Appealing things about Markdown</h2>
 <p>The source text is readable as it is. When writing and revising, you
-don't have to parse through command-words which aren't part of the
+don’t have to parse through command-words which aren’t part of the
 content.</p>
 <div class="fragment">
-<p>If you're writing in a language other than English, you don't have to
+<p>If you’re writing in a language other than English, you don’t have to
 have English words sprinkled in the text.</p>
 </div>
 <div class="fragment">
-<p>There's no boilerplate at the beginning. The document just starts
+<p>There’s no boilerplate at the beginning. The document just starts
 with the text.</p>
 </div>
 </section>
-<section id="real-separation-of-content-from-formatting"
+<section id="real-separation-of-content-from-formatting."
 class="slide level2">
 <h2>Real separation of content from formatting.</h2>
-<p>\vspace{1em}</p>
 <blockquote>
 <p>The paucity of means is the greatest virtue of markdown and pandoc
 markdown.</p>
@@ -757,23 +763,23 @@ markdown.</p>
 defects of LaTeX for concentration, writing and thought, are at least as
 great as those of Word, for the simple reason that it gives the writer
 too much power; there is always another package to call in the preamble,
-as there is always another drop down menu in Word. ...</p>
+as there is always another drop down menu in Word. …</p>
 <p>In markdown - not to put too fine a point on it - the writer is only
 ever faced with one question, and it is the right one: what the next
 sentence should be.</p>
-<p>--- Michael Thompson, pandoc-discuss mailing list</p>
+<p>— Michael Thompson, pandoc-discuss mailing list</p>
 </blockquote>
 </section>
 <section id="appealing-things-about-markdown-1" class="slide level2">
 <h2>Appealing things about Markdown</h2>
-<p>Using Markdown makes it possible to collaborate with others who don't
+<p>Using Markdown makes it possible to collaborate with others who don’t
 know LaTeX.</p>
 </section>
 <section id="appealing-things-about-markdown-2" class="slide level2">
 <h2>Appealing things about Markdown</h2>
 <p>Markdown can be converted with complete, reliable accuracy into many
 different formats.</p>
-<p>It's often not enough just to produce a PDF.</p>
+<p>It’s often not enough just to produce a PDF.</p>
 <ul>
 <li>JATS for publication or archiving</li>
 <li>EPUB for convenient reading on mobile devices</li>
@@ -787,7 +793,7 @@ documents.</p>
 </section>
 <section id="limitations-of-markdown" class="slide level2">
 <h2>Limitations of Markdown</h2>
-<p>John Gruber's original markdown syntax lacks support for:</p>
+<p>John Gruber’s original markdown syntax lacks support for:</p>
 <ul class="task-list">
 <li><label><input type="checkbox" />tables</label></li>
 <li><label><input type="checkbox" />figures</label></li>
@@ -808,8 +814,8 @@ equations</label></li>
 </section>
 <section id="limitations-of-markdown-1" class="slide level2">
 <h2>Limitations of Markdown</h2>
-<p>We couldn't live without these things in academic writing.</p>
-<p>And we definitely couldn't live without</p>
+<p>We couldn’t live without these things in academic writing.</p>
+<p>And we definitely couldn’t live without</p>
 <ul class="task-list">
 <li><label><input type="checkbox" />bibtex/biblatex</label></li>
 <li><label><input type="checkbox" />macros</label></li>
@@ -819,11 +825,11 @@ equations</label></li>
 <section>
 <section id="overcoming-markdowns-limitations"
 class="title-slide slide level1">
-<h1>Overcoming Markdown's limitations</h1>
+<h1>Overcoming Markdown’s limitations</h1>
 
 </section>
 <section id="pandocs-extended-markdown-syntax" class="slide level2">
-<h2>Pandoc's extended Markdown syntax</h2>
+<h2>Pandoc’s extended Markdown syntax</h2>
 <ul class="task-list">
 <li><label><input type="checkbox" checked="" />tables
 (limited)</label></li>
@@ -872,7 +878,7 @@ CSL JSON bibliography such as can be produced by Zotero.</p>
 <section id="section-5" class="slide level2">
 <h2></h2>
 <p>LaTeX macros allow you to define new constructions that exactly fit
-what you're writing about. Can we recover this flexibility?</p>
+what you’re writing about. Can we recover this flexibility?</p>
 </section>
 <section id="raw-tex-in-markdown" class="slide level2">
 <h2>Raw TeX in Markdown</h2>
@@ -908,9 +914,9 @@ readability.</li>
 </section>
 <section id="a-better-approach" class="slide level2">
 <h2>A better approach</h2>
-<ol>
+<ol type="1">
 <li><p>Adopt the convention that a certain thing representable in
-pandoc's markdown should be interpreted as, say, a dropped capital
+pandoc’s markdown should be interpreted as, say, a dropped capital
 letter.</p></li>
 <li><p>Write a filter that does the interpretation.</p></li>
 </ol>
@@ -931,7 +937,7 @@ in Markdown:</p>
 <p>Now we need a filter that replaces <code>Span</code> elements with
 class <code>dropcap</code> in the Pandoc AST with something appropriate
 for the output format.</p>
-<p><embed data-src="pandoc-architecture.pdf" />{height=3in}</p>
+<p><embed data-src="pandoc-architecture.pdf" style="height:3in" /></p>
 </section>
 <section id="two-kinds-of-filters" class="slide level2">
 <h2>Two kinds of filters</h2>
@@ -941,11 +947,10 @@ representation of the pandoc AST. They can be written in any language
 that can consume and produce JSON.</p></li>
 <li><p><strong>Lua filters</strong> use a Lua interpreter and
 environment built into pandoc. No external software need be installed,
-and the filters are more efficient, because we don't need to serialize
+and the filters are more efficient, because we don’t need to serialize
 and deserialize as JSON.</p></li>
 </ul>
-<p>Documentation: <a href="https://pandoc.org/lua-filters.html"
-class="uri">https://pandoc.org/lua-filters.html</a></p>
+<p>Documentation: https://pandoc.org/lua-filters.html</p>
 </section>
 <section id="example-drop-caps-2" class="slide level2">
 <h2>Example: drop caps</h2>
@@ -974,7 +979,6 @@ class="sourceCode lua"><code class="sourceCode lua"><span id="cb21-1"><a href="#
 <p>Now we just have to define <code>make_dropcap</code>. It takes a list
 of Inline elements (<code>el.content</code>) and returns a list of
 Inline elements.</p>
-<p>\small</p>
 <div class="sourceCode" id="cb22"><pre
 class="sourceCode lua"><code class="sourceCode lua"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="kw">local</span> <span class="kw">function</span> make_dropcap<span class="op">(</span><span class="va">els</span><span class="op">)</span></span>
 <span id="cb22-2"><a href="#cb22-2" aria-hidden="true" tabindex="-1"></a>  <span class="cf">if</span> <span class="va">els</span><span class="op">[</span><span class="dv">1</span><span class="op">]</span> <span class="kw">and</span> <span class="va">els</span><span class="op">[</span><span class="dv">1</span><span class="op">].</span><span class="va">t</span> <span class="op">==</span> <span class="st">&#39;Str&#39;</span> <span class="cf">then</span>  <span class="co">-- arrays start at 1!</span></span>
@@ -1004,9 +1008,8 @@ class="sourceCode lua"><code class="sourceCode lua"><span id="cb22-1"><a href="#
 <h2>Example: tikz diagrams</h2>
 <p>To get a tikz diagram, we could have a filter turn specially marked
 code blocks into images.</p>
-<p>In fact, there is already a very nice general diagram filter at <a
-href="https://github.com/pandoc/lua-filters"
-class="uri">https://github.com/pandoc/lua-filters</a>.</p>
+<p>In fact, there is already a very nice general diagram filter at
+https://github.com/pandoc/lua-filters.</p>
 <pre><code>% cat diagram.md
 % pandoc diagram.md -L diagram-generator.lua -s \
   --extract-media=media -o diagram.html
@@ -1041,10 +1044,8 @@ $$
 <li>For pandoc questions, come to pandoc-discuss on google groups: <a
 href="https://groups.google.com/g/pandoc-discuss"
 class="uri">https://groups.google.com/g/pandoc-discuss</a></li>
-<li>For bug reports, the tracker at <a
-href="https://github.com/jgm/pandoc"
-class="uri">https://github.com/jgm/pandoc</a></li>
-<li>If you'd like to improve pandoc's handling of LaTeX, we can always
+<li>For bug reports, the tracker at https://github.com/jgm/pandoc</li>
+<li>If you’d like to improve pandoc’s handling of LaTeX, we can always
 use new contributors!</li>
 </ul>
 <p>Questions?</p>
