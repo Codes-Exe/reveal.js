@@ -1180,3 +1180,648 @@ use new contributors!</li>
     </script>
     </body>
 </html>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <meta name="author" content="John MacFarlane" />
+  <title>Pandoc for TeXnicians</title>
+  <style>
+    html {
+      color: #1a1a1a;
+      background-color: #fdfdfd;
+    }
+    body {
+      margin: 0 auto;
+      max-width: 36em;
+      padding-left: 50px;
+      padding-right: 50px;
+      padding-top: 50px;
+      padding-bottom: 50px;
+      hyphens: auto;
+      overflow-wrap: break-word;
+      text-rendering: optimizeLegibility;
+      font-kerning: normal;
+    }
+    @media (max-width: 600px) {
+      body {
+        font-size: 0.9em;
+        padding: 12px;
+      }
+      h1 {
+        font-size: 1.8em;
+      }
+    }
+    @media print {
+      html {
+        background-color: white;
+      }
+      body {
+        background-color: transparent;
+        color: black;
+        font-size: 12pt;
+      }
+      p, h2, h3 {
+        orphans: 3;
+        widows: 3;
+      }
+      h2, h3, h4 {
+        page-break-after: avoid;
+      }
+    }
+    p {
+      margin: 1em 0;
+    }
+    a {
+      color: #1a1a1a;
+    }
+    a:visited {
+      color: #1a1a1a;
+    }
+    img {
+      max-width: 100%;
+    }
+    svg {
+      height: auto;
+      max-width: 100%;
+    }
+    h1, h2, h3, h4, h5, h6 {
+      margin-top: 1.4em;
+    }
+    h5, h6 {
+      font-size: 1em;
+      font-style: italic;
+    }
+    h6 {
+      font-weight: normal;
+    }
+    ol, ul {
+      padding-left: 1.7em;
+      margin-top: 1em;
+    }
+    li > ol, li > ul {
+      margin-top: 0;
+    }
+    blockquote {
+      margin: 1em 0 1em 1.7em;
+      padding-left: 1em;
+      border-left: 2px solid #e6e6e6;
+      color: #606060;
+    }
+    code {
+      font-family: Menlo, Monaco, Consolas, 'Lucida Console', monospace;
+      font-size: 85%;
+      margin: 0;
+      hyphens: manual;
+    }
+    pre {
+      margin: 1em 0;
+      overflow: auto;
+    }
+    pre code {
+      padding: 0;
+      overflow: visible;
+      overflow-wrap: normal;
+    }
+    .sourceCode {
+     background-color: transparent;
+     overflow: visible;
+    }
+    hr {
+      border: none;
+      border-top: 1px solid #1a1a1a;
+      height: 1px;
+      margin: 1em 0;
+    }
+    table {
+      margin: 1em 0;
+      border-collapse: collapse;
+      width: 100%;
+      overflow-x: auto;
+      display: block;
+      font-variant-numeric: lining-nums tabular-nums;
+    }
+    table caption {
+      margin-bottom: 0.75em;
+    }
+    tbody {
+      margin-top: 0.5em;
+      border-top: 1px solid #1a1a1a;
+      border-bottom: 1px solid #1a1a1a;
+    }
+    th {
+      border-top: 1px solid #1a1a1a;
+      padding: 0.25em 0.5em 0.25em 0.5em;
+    }
+    td {
+      padding: 0.125em 0.5em 0.25em 0.5em;
+    }
+    header {
+      margin-bottom: 4em;
+      text-align: center;
+    }
+    #TOC li {
+      list-style: none;
+    }
+    #TOC ul {
+      padding-left: 1.3em;
+    }
+    #TOC > ul {
+      padding-left: 0;
+    }
+    #TOC a:not(:hover) {
+      text-decoration: none;
+    }
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    div.columns{display: flex; gap: min(4vw, 1.5em);}
+    div.column{flex: auto; overflow-x: auto;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    /* The extra [class] is a hack that increases specificity enough to
+       override a similar rule in reveal.js */
+    ul.task-list[class]{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      font-size: inherit;
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1.6em;
+      vertical-align: middle;
+    }
+    /* CSS for syntax highlighting */
+    html { -webkit-text-size-adjust: 100%; }
+    pre > code.sourceCode { white-space: pre; position: relative; }
+    pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+    pre > code.sourceCode > span:empty { height: 1.2em; }
+    .sourceCode { overflow: visible; }
+    code.sourceCode > span { color: inherit; text-decoration: inherit; }
+    div.sourceCode { margin: 1em 0; }
+    pre.sourceCode { margin: 0; }
+    @media screen {
+    div.sourceCode { overflow: auto; }
+    }
+    @media print {
+    pre > code.sourceCode { white-space: pre-wrap; }
+    pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+    }
+    pre.numberSource code
+      { counter-reset: source-line 0; }
+    pre.numberSource code > span
+      { position: relative; left: -4em; counter-increment: source-line; }
+    pre.numberSource code > span > a:first-child::before
+      { content: counter(source-line);
+        position: relative; left: -1em; text-align: right; vertical-align: baseline;
+        border: none; display: inline-block;
+        -webkit-touch-callout: none; -webkit-user-select: none;
+        -khtml-user-select: none; -moz-user-select: none;
+        -ms-user-select: none; user-select: none;
+        padding: 0 4px; width: 4em;
+        color: #aaaaaa;
+      }
+    pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+    div.sourceCode
+      {   }
+    @media screen {
+    pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+    }
+    code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+    code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+    code span.at { color: #7d9029; } /* Attribute */
+    code span.bn { color: #40a070; } /* BaseN */
+    code span.bu { color: #008000; } /* BuiltIn */
+    code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+    code span.ch { color: #4070a0; } /* Char */
+    code span.cn { color: #880000; } /* Constant */
+    code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+    code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+    code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+    code span.dt { color: #902000; } /* DataType */
+    code span.dv { color: #40a070; } /* DecVal */
+    code span.er { color: #ff0000; font-weight: bold; } /* Error */
+    code span.ex { } /* Extension */
+    code span.fl { color: #40a070; } /* Float */
+    code span.fu { color: #06287e; } /* Function */
+    code span.im { color: #008000; font-weight: bold; } /* Import */
+    code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+    code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+    code span.op { color: #666666; } /* Operator */
+    code span.ot { color: #007020; } /* Other */
+    code span.pp { color: #bc7a00; } /* Preprocessor */
+    code span.sc { color: #4070a0; } /* SpecialChar */
+    code span.ss { color: #bb6688; } /* SpecialString */
+    code span.st { color: #4070a0; } /* String */
+    code span.va { color: #19177c; } /* Variable */
+    code span.vs { color: #4070a0; } /* VerbatimString */
+    code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+  </style>
+  <style>
+    .reveal {
+    font-size: 20pt;
+    line-height: 1.2em;
+  }
+   .reveal pre code {
+    font-size: 16pt;
+    line-height: 1.2em;
+  }
+  </style>
+</head>
+<body>
+<header id="title-block-header">
+<h1 class="title">Pandoc for TeXnicians</h1>
+<p class="author">John MacFarlane</p>
+<p class="date">TUG 2020, 2020-07-26</p>
+</header>
+<h1 id="overview">Overview</h1>
+<h2 id="section"></h2>
+<ul>
+<li>What is pandoc?</li>
+<li>Using pandoc to convert to and from LaTeX</li>
+<li>Why write in Markdown?</li>
+<li>Overcoming Markdown’s limitations</li>
+</ul>
+<h1 id="what-is-pandoc">What is pandoc?</h1>
+<h2 id="section-1"></h2>
+<p><a href="https://pandoc.org" class="uri">https://pandoc.org</a></p>
+<h2 id="lets-take-it-for-a-spin">Let’s take it for a spin</h2>
+<pre><code>% cat simple.tex
+\section{On $e=mc^2$}\label{einstein}</code></pre>
+<pre><code>% pandoc -f latex -t native simple.tex
+% pandoc -f latex -t html simple.tex
+% pandoc -t html --mathml simple.tex
+% pandoc -t html --mathjax simple.tex
+% pandoc -t -html --mathjax -s simple.tex
+% pandoc -t ms simple.tex
+% pandoc -t gfm simple.tex
+% pandoc -t context simple.tex
+% pandoc -t jats simple.tex</code></pre>
+<h2 id="some-math">Some math</h2>
+<p>Let’s try with a sample TeX document by Professor A.J. Roberts at the
+University of Adelaide (CC licensed).</p>
+<p><a
+href="http://www.maths.adelaide.edu.au/anthony.roberts/LaTeX/Src/maths.tex"
+class="uri">http://www.maths.adelaide.edu.au/anthony.roberts/LaTeX/Src/maths.tex</a></p>
+<h2 id="some-math-1">Some math</h2>
+<pre><code>% pandoc maths.tex -o maths.docx</code></pre>
+<p>. . .</p>
+<p>Two problems:</p>
+<ul>
+<li>the use of a low-level TeX primitive <code>\mathcode</code>.</li>
+<li>the use of <code>\parbox</code> (line 288)</li>
+</ul>
+<p>Fix by removing the <code>\mathcode</code> stuff and redefining the
+<code>\parmath</code> macro as a no-op:</p>
+<div class="sourceCode" id="cb4"><pre
+class="sourceCode latex"><code class="sourceCode latex"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">\newcommand</span>{<span class="ex">\parmath</span>}[2][]{#2}</span></code></pre></div>
+<h2 id="take-two">Take two</h2>
+<pre><code>% pandoc maths.tex --number-sections -o maths.docx
+% open maths.docx</code></pre>
+<ul>
+<li>AMS theorem environments come out right, including references.</li>
+<li>Math is translated into native Word equation objects, which can be
+edited and which match the font, rather than images.</li>
+<li>Still missing: equation numbers.</li>
+</ul>
+<h2 id="going-the-other-way">Going the other way</h2>
+<pre><code>% pandoc maths.docx -o newmaths.tex -s
+% xelatex newmaths
+% xelatex newmaths</code></pre>
+<h2 id="converting-to-html">Converting to HTML</h2>
+<pre><code>% pandoc maths.tex -s -o maths.html --mathml \
+  --number-sections --toc
+% open maths.html</code></pre>
+<h2 id="comparison-with-latex2rtf">Comparison with latex2rtf</h2>
+<pre><code>% latex2rtf maths.tex
+% open -a &quot;Microsoft Word&quot; maths.rtf</code></pre>
+<ul>
+<li>References not resolved in Section 1</li>
+<li>Accents in Section 2 not above the letters, math generally ugly</li>
+<li>Arrays in Section 8 totally broken; same with subequations in
+Section 9</li>
+<li>But at least we do get equation numbers in Section 9</li>
+</ul>
+<h2 id="comparison-with-tex4ht">Comparison with tex4ht</h2>
+<pre><code>% make4ht maths
+% open maths.html</code></pre>
+<ul>
+<li>Theorem environments not handled in Section 1 (except for
+one?).</li>
+<li>Missing accents in Section 2.</li>
+<li>Ugly equations that incorporate both text and images in different
+fonts.</li>
+</ul>
+<h2 id="comparison-with-word-from-pdf">Comparison with Word from
+PDF</h2>
+<pre><code>% pdflatex maths
+% pdflatex maths
+% open -a &quot;Microsoft Word&quot; maths.pdf</code></pre>
+<ul>
+<li>Section 2, accents messed up.</li>
+<li>Some formulas are rendered with images, others with regular
+characters, in non-matching font.</li>
+<li>The ‘where’ in Section 6 is badly mispleacd.</li>
+<li>The integral is missing in Section 7</li>
+<li>The diagonal ellipses are missing in the arrays</li>
+</ul>
+<h2 id="pandoc-can-interpret-tex-macros">Pandoc can interpret TeX
+macros</h2>
+<pre><code>% cat macros.tex
+\newcommand{\nec}{\Box}
+\newcommand{\if}[2]{#1 \rightarrow #2}
+\newenvironment{warning}%
+ {\begin{quote}\textbf{WARNING!}}%
+ {\end{quote}}
+
+$\if{\nec \phi}{\phi}$
+\begin{warning}
+Don&#39;t try this at home.
+\end{warning}</code></pre>
+<pre><code>% pandoc macros.tex -t html</code></pre>
+<h2 id="pandoc-can-resolve-bibtex-citations">Pandoc can resolve bibtex
+citations</h2>
+<p>With the help of the <code>pandoc-citeproc</code> filter (included in
+the released binaries).</p>
+<pre><code>% pandoc --filter pandoc-citeproc bib.tex \
+  -t plain --csl ieee.csl</code></pre>
+<h2 id="limitations">Limitations</h2>
+<p>Pandoc is far from being able to convert arbitrary tex files with
+high accuracy.</p>
+<p>Let’s try with a real-world example I got at random from arxiv.</p>
+<pre><code>% cd arxiv.2007.07694v1
+% pandoc arxiv.tex -o arxiv.docx</code></pre>
+<h1 id="an-alternative">An alternative</h1>
+<h2 id="an-alternative-1">An alternative</h2>
+<p>So you can’t just write in LaTeX and expect to convert at the last
+minute to docx (for a publisher) or epub (for your students) or HTML
+(for your website).</p>
+<p>An alternative: write your document in pandoc’s extended version of
+Markdown, which pandoc can convert with complete accuracy to any of its
+output formats.</p>
+<h2 id="what-is-markdown">What is Markdown?</h2>
+<p>Markdown is a set of conventions for indicating document formatting
+in plain text, mostly inherited from the pre-internet days of bulletin
+boards and email.</p>
+<p>It was designed in 2004 by John Gruber with help from Aaron Schwartz,
+and it is currently much used by programmers, and on forums like
+stackoverflow and reddit, and by data scientists via Jupyter notebooks
+and RMarkdown.</p>
+<p><a href="https://daringfireball.net/projects/markdown/"
+class="uri">https://daringfireball.net/projects/markdown/</a></p>
+<h2 id="appealing-things-about-markdown">Appealing things about
+Markdown</h2>
+<p>The source text is readable as it is. When writing and revising, you
+don’t have to parse through command-words which aren’t part of the
+content.</p>
+<p>. . .</p>
+<p>If you’re writing in a language other than English, you don’t have to
+have English words sprinkled in the text.</p>
+<p>. . .</p>
+<p>There’s no boilerplate at the beginning. The document just starts
+with the text.</p>
+<h2 id="real-separation-of-content-from-formatting.">Real separation of
+content from formatting.</h2>
+<blockquote>
+<p>The paucity of means is the greatest virtue of markdown and pandoc
+markdown.</p>
+<p>It is strangely difficult to get people to see the point, but the
+defects of LaTeX for concentration, writing and thought, are at least as
+great as those of Word, for the simple reason that it gives the writer
+too much power; there is always another package to call in the preamble,
+as there is always another drop down menu in Word. …</p>
+<p>In markdown - not to put too fine a point on it - the writer is only
+ever faced with one question, and it is the right one: what the next
+sentence should be.</p>
+<p>— Michael Thompson, pandoc-discuss mailing list</p>
+</blockquote>
+<h2 id="appealing-things-about-markdown-1">Appealing things about
+Markdown</h2>
+<p>Using Markdown makes it possible to collaborate with others who don’t
+know LaTeX.</p>
+<h2 id="appealing-things-about-markdown-2">Appealing things about
+Markdown</h2>
+<p>Markdown can be converted with complete, reliable accuracy into many
+different formats.</p>
+<p>It’s often not enough just to produce a PDF.</p>
+<ul>
+<li>JATS for publication or archiving</li>
+<li>EPUB for convenient reading on mobile devices</li>
+<li>Docx or ICML for a publisher</li>
+<li>HTML for a website (or accessibility)</li>
+<li>Jupyter notebook for research</li>
+<li>Beamer or reveal.js slides for presentation</li>
+</ul>
+<p>TeX is a great assembly language for publication-quality
+documents.</p>
+<h2 id="limitations-of-markdown">Limitations of Markdown</h2>
+<p>John Gruber’s original markdown syntax lacks support for:</p>
+<ul class="task-list">
+<li><label><input type="checkbox" />tables</label></li>
+<li><label><input type="checkbox" />figures</label></li>
+<li><label><input type="checkbox" />footnotes</label></li>
+<li><label><input type="checkbox" />definition lists</label></li>
+<li><label><input type="checkbox" />ordered lists other than
+decimal-numbered</label></li>
+<li><label><input type="checkbox" />super/subscript</label></li>
+<li><label><input type="checkbox" />math</label></li>
+<li><label><input type="checkbox" />document metadata</label></li>
+<li><label><input type="checkbox" />attributes or metadata on individual
+elements like sections</label></li>
+<li><label><input type="checkbox" />labels and
+cross-references</label></li>
+<li><label><input type="checkbox" />numbering for running examples or
+equations</label></li>
+</ul>
+<h2 id="limitations-of-markdown-1">Limitations of Markdown</h2>
+<p>We couldn’t live without these things in academic writing.</p>
+<p>And we definitely couldn’t live without</p>
+<ul class="task-list">
+<li><label><input type="checkbox" />bibtex/biblatex</label></li>
+<li><label><input type="checkbox" />macros</label></li>
+</ul>
+<p>How can we overcome these limitations?</p>
+<h1 id="overcoming-markdowns-limitations">Overcoming Markdown’s
+limitations</h1>
+<h2 id="pandocs-extended-markdown-syntax">Pandoc’s extended Markdown
+syntax</h2>
+<ul class="task-list">
+<li><label><input type="checkbox" checked="" />tables
+(limited)</label></li>
+<li><label><input type="checkbox" checked="" />figures
+(limited)</label></li>
+<li><label><input type="checkbox" checked="" />math</label></li>
+<li><label><input type="checkbox" checked="" />footnotes</label></li>
+<li><label><input type="checkbox" checked="" />definition
+lists</label></li>
+<li><label><input type="checkbox" checked="" />more flexible ordered
+lists</label></li>
+<li><label><input type="checkbox" checked="" />running example
+lists</label></li>
+<li><label><input type="checkbox"
+checked="" />super/subscript</label></li>
+<li><label><input type="checkbox" checked="" />strikeout</label></li>
+<li><label><input type="checkbox" checked="" />metadata</label></li>
+<li><label><input type="checkbox" checked="" />attributes</label></li>
+<li><label><input type="checkbox" checked="" />generic
+containers</label></li>
+</ul>
+<h2 id="section-2"></h2>
+<p>Pandoc also understands LaTeX macro definitions, which you can use
+for math (no matter what the output format).</p>
+<h2 id="section-3"></h2>
+<p>Labels and cross-references are still a work in progress, but you can
+get good support for them using an external filter,
+<code>pandoc-crossref</code>, by pandoc contributor Nikolay Yakimov.</p>
+<h2 id="section-4"></h2>
+<p>You can use the <code>--citeproc</code> filter to resolve citations
+in this syntax:</p>
+<pre><code>Blah blah [@putnam:empirical, p. 33; see also
+@dummett:empirical].</code></pre>
+<p>Change the style by specifying a CSL stylesheet. (You can even change
+between author-date, numerical, and footnote sytles with no
+modifications to the source.)</p>
+<p>You can use your existing bibtex or biblatex bibliography file, or a
+CSL JSON bibliography such as can be produced by Zotero.</p>
+<h2 id="section-5"></h2>
+<p>LaTeX macros allow you to define new constructions that exactly fit
+what you’re writing about. Can we recover this flexibility?</p>
+<h2 id="raw-tex-in-markdown">Raw TeX in Markdown</h2>
+<p>One approach is to just include bits of raw TeX in your markdown
+file. Pandoc allows that.</p>
+<ul>
+<li><p>There is a special syntax for indicating chunks of raw TeX, but
+pandoc will also recognize obvious bits of raw TeX and pass them through
+as such.</p></li>
+<li><p>The raw TeX chunks will be passed on unchanged if the output
+format is <code>latex</code>, <code>beamer</code>, or
+<code>context</code>, and otherwise simply omitted.</p></li>
+</ul>
+<h2 id="section-6"></h2>
+<pre><code>% cat raw.md
+% pandoc raw.md -o raw.pdf
+% open raw.pdf</code></pre>
+<p>But:</p>
+<pre><code>% pandoc raw.md -s -o raw.html
+% open raw.html</code></pre>
+<h2 id="section-7"></h2>
+<p>Drawbacks:</p>
+<ul>
+<li>With this approach you lose the ability to target multiple
+formats.</li>
+<li>Your source is now an ugly mix of Markdown and TeX, compromising
+readability.</li>
+</ul>
+<h2 id="a-better-approach">A better approach</h2>
+<ol type="1">
+<li><p>Adopt the convention that a certain thing representable in
+pandoc’s markdown should be interpreted as, say, a dropped capital
+letter.</p></li>
+<li><p>Write a filter that does the interpretation.</p></li>
+</ol>
+<h2 id="example-drop-caps">Example: drop caps</h2>
+<p>In LaTeX we can use the <code>lettrine</code> package to get dropped
+capitals at the beginning of chapters:</p>
+<div class="sourceCode" id="cb18"><pre
+class="sourceCode latex"><code class="sourceCode latex"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="fu">\lettrine</span>{T}{his} is a pulley</span></code></pre></div>
+<p>We will use a generic bracketed span with a class to represent this
+in Markdown:</p>
+<pre><code>[This]{.dropcap} is a pulley.
+</code></pre>
+<h2 id="example-drop-caps-1">Example: drop caps</h2>
+<p>Now we need a filter that replaces <code>Span</code> elements with
+class <code>dropcap</code> in the Pandoc AST with something appropriate
+for the output format.</p>
+<p><embed src="pandoc-architecture.pdf" style="height:3in" /></p>
+<h2 id="two-kinds-of-filters">Two kinds of filters</h2>
+<ul>
+<li><p><strong>JSON filters</strong> operate on a serialized JSON
+representation of the pandoc AST. They can be written in any language
+that can consume and produce JSON.</p></li>
+<li><p><strong>Lua filters</strong> use a Lua interpreter and
+environment built into pandoc. No external software need be installed,
+and the filters are more efficient, because we don’t need to serialize
+and deserialize as JSON.</p></li>
+</ul>
+<p>Documentation: https://pandoc.org/lua-filters.html</p>
+<h2 id="example-drop-caps-2">Example: drop caps</h2>
+<p>In a Lua filter we define functions that match different kinds of AST
+elements. Here we want to match a Span. Create a file
+<code>dropcap.lua</code>:</p>
+<div class="sourceCode" id="cb20"><pre
+class="sourceCode lua"><code class="sourceCode lua"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="kw">function</span> Span<span class="op">(</span><span class="va">el</span><span class="op">)</span></span>
+<span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a>  <span class="co">-- do something with the Span (el)</span></span>
+<span id="cb20-3"><a href="#cb20-3" aria-hidden="true" tabindex="-1"></a>  <span class="co">-- return the transformed element or a new element</span></span>
+<span id="cb20-4"><a href="#cb20-4" aria-hidden="true" tabindex="-1"></a><span class="kw">end</span></span></code></pre></div>
+<h2 id="example-drop-caps-3">Example: drop caps</h2>
+<p>We only want to do something if the Span has the class
+<code>dropcap</code> and its contents begin with a Str element.</p>
+<div class="sourceCode" id="cb21"><pre
+class="sourceCode lua"><code class="sourceCode lua"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="kw">function</span> Span<span class="op">(</span><span class="va">el</span><span class="op">)</span></span>
+<span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a>  <span class="cf">if</span> <span class="va">el</span><span class="op">.</span><span class="va">classes</span><span class="op">:</span>includes<span class="op">(</span><span class="st">&#39;dropcap&#39;</span><span class="op">)</span> <span class="cf">then</span></span>
+<span id="cb21-3"><a href="#cb21-3" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> make_dropcap<span class="op">(</span><span class="va">el</span><span class="op">.</span><span class="va">content</span><span class="op">)</span></span>
+<span id="cb21-4"><a href="#cb21-4" aria-hidden="true" tabindex="-1"></a>  <span class="cf">end</span></span>
+<span id="cb21-5"><a href="#cb21-5" aria-hidden="true" tabindex="-1"></a><span class="kw">end</span></span></code></pre></div>
+<h2 id="example-drop-caps-4">Example: drop caps</h2>
+<p>Now we just have to define <code>make_dropcap</code>. It takes a list
+of Inline elements (<code>el.content</code>) and returns a list of
+Inline elements.</p>
+<div class="sourceCode" id="cb22"><pre
+class="sourceCode lua"><code class="sourceCode lua"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="kw">local</span> <span class="kw">function</span> make_dropcap<span class="op">(</span><span class="va">els</span><span class="op">)</span></span>
+<span id="cb22-2"><a href="#cb22-2" aria-hidden="true" tabindex="-1"></a>  <span class="cf">if</span> <span class="va">els</span><span class="op">[</span><span class="dv">1</span><span class="op">]</span> <span class="kw">and</span> <span class="va">els</span><span class="op">[</span><span class="dv">1</span><span class="op">].</span><span class="va">t</span> <span class="op">==</span> <span class="st">&#39;Str&#39;</span> <span class="cf">then</span>  <span class="co">-- arrays start at 1!</span></span>
+<span id="cb22-3"><a href="#cb22-3" aria-hidden="true" tabindex="-1"></a>    <span class="kw">local</span> <span class="va">first_letter</span><span class="op">,</span> <span class="va">rest</span> <span class="op">=</span> <span class="va">els</span><span class="op">[</span><span class="dv">1</span><span class="op">].</span><span class="va">text</span><span class="op">:</span><span class="fu">match</span><span class="op">(</span><span class="st">&#39;(%a)(.*)&#39;</span><span class="op">)</span></span>
+<span id="cb22-4"><a href="#cb22-4" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> <span class="cn">FORMAT</span> <span class="op">==</span> <span class="st">&#39;latex&#39;</span> <span class="cf">then</span></span>
+<span id="cb22-5"><a href="#cb22-5" aria-hidden="true" tabindex="-1"></a>      <span class="va">els</span><span class="op">[</span><span class="dv">1</span><span class="op">]</span> <span class="op">=</span> <span class="va">pandoc</span><span class="op">.</span>RawInline<span class="op">(</span><span class="st">&#39;latex&#39;</span><span class="op">,</span></span>
+<span id="cb22-6"><a href="#cb22-6" aria-hidden="true" tabindex="-1"></a>                 <span class="st">&#39;</span><span class="sc">\\</span><span class="st">lettrine{&#39;</span> <span class="op">..</span>  <span class="va">first_letter</span> <span class="op">..</span></span>
+<span id="cb22-7"><a href="#cb22-7" aria-hidden="true" tabindex="-1"></a>                 <span class="st">&#39;}{&#39;</span> <span class="op">..</span> <span class="va">rest</span> <span class="op">..</span> <span class="st">&#39;}&#39;</span><span class="op">)</span></span>
+<span id="cb22-8"><a href="#cb22-8" aria-hidden="true" tabindex="-1"></a>    <span class="cf">elseif</span> <span class="cn">FORMAT</span><span class="op">:</span><span class="fu">match</span><span class="op">(</span><span class="st">&#39;html&#39;</span><span class="op">)</span> <span class="cf">then</span></span>
+<span id="cb22-9"><a href="#cb22-9" aria-hidden="true" tabindex="-1"></a>      <span class="va">els</span><span class="op">[</span><span class="dv">1</span><span class="op">]</span> <span class="op">=</span> <span class="va">pandoc</span><span class="op">.</span>Span<span class="op">({</span></span>
+<span id="cb22-10"><a href="#cb22-10" aria-hidden="true" tabindex="-1"></a>                   <span class="va">pandoc</span><span class="op">.</span>Span<span class="op">(</span><span class="va">pandoc</span><span class="op">.</span>Str<span class="op">(</span><span class="va">first_letter</span><span class="op">),</span></span>
+<span id="cb22-11"><a href="#cb22-11" aria-hidden="true" tabindex="-1"></a>                    <span class="op">{</span><span class="va">class</span><span class="op">=</span><span class="st">&#39;dropcap-first&#39;</span><span class="op">}),</span></span>
+<span id="cb22-12"><a href="#cb22-12" aria-hidden="true" tabindex="-1"></a>                   <span class="va">pandoc</span><span class="op">.</span>Span<span class="op">(</span><span class="va">pandoc</span><span class="op">.</span>Str<span class="op">(</span><span class="va">rest</span><span class="op">),</span></span>
+<span id="cb22-13"><a href="#cb22-13" aria-hidden="true" tabindex="-1"></a>                <span class="op">{</span><span class="va">class</span><span class="op">=</span><span class="st">&#39;dropcap-rest&#39;</span><span class="op">})})</span></span>
+<span id="cb22-14"><a href="#cb22-14" aria-hidden="true" tabindex="-1"></a>    <span class="cf">end</span></span>
+<span id="cb22-15"><a href="#cb22-15" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> <span class="va">els</span></span>
+<span id="cb22-16"><a href="#cb22-16" aria-hidden="true" tabindex="-1"></a>  <span class="cf">end</span></span>
+<span id="cb22-17"><a href="#cb22-17" aria-hidden="true" tabindex="-1"></a><span class="kw">end</span></span></code></pre></div>
+<h2 id="example-drop-caps-5">Example: drop caps</h2>
+<pre><code>% pandoc -L dropcap.lua -t latex -o dropcap.pdf
+% pandoc -L dropcap.lua -t html -s --css dropcap.css \
+    dropcap.md -o dropcap.html</code></pre>
+<h2 id="example-tikz-diagrams">Example: tikz diagrams</h2>
+<p>To get a tikz diagram, we could have a filter turn specially marked
+code blocks into images.</p>
+<p>In fact, there is already a very nice general diagram filter at
+https://github.com/pandoc/lua-filters.</p>
+<pre><code>% cat diagram.md
+% pandoc diagram.md -L diagram-generator.lua -s \
+  --extract-media=media -o diagram.html
+% pandoc diagram.md -L diagram-generator.lua \
+  -o diagram.docx</code></pre>
+<h2 id="example-theorems">Example: theorems</h2>
+<p>How to reproduce LaTeX <code>theorem</code> environments?</p>
+<p>Markdown version:</p>
+<pre><code>::: {.theorem #pythagoras}
+#### Pythagoras&#39;s Theorem
+In a right triangle, the lengths of the two shorter sides
+$a$, $b$ and the longer side $c$ stand in the relation
+$$
+a^2 + b^2 = c^2.
+$$
+:::</code></pre>
+<h2 id="example-theorems-1">Example: theorems</h2>
+<pre><code>% cat theorem.lua
+% cat theorem.md
+% pandoc -L theorem.lua theorem.md -t latex
+% pandoc theorem.md -L theorem.lua -t plain
+% pandoc theorem.md -L theorem.lua -t rst
+% pandoc theorem.md -L theorem.lua -t html</code></pre>
+<h2 id="the-end">The end</h2>
+<ul>
+<li>For pandoc questions, come to pandoc-discuss on google groups: <a
+href="https://groups.google.com/g/pandoc-discuss"
+class="uri">https://groups.google.com/g/pandoc-discuss</a></li>
+<li>For bug reports, the tracker at https://github.com/jgm/pandoc</li>
+<li>If you’d like to improve pandoc’s handling of LaTeX, we can always
+use new contributors!</li>
+</ul>
+<p>Questions?</p>
+</body>
+</html>
